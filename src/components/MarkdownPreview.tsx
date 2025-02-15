@@ -7,7 +7,7 @@ import { markdownText } from './MarkdownEditor';
 export const MarkDownPreview: React.FC = () => {
 	useSignals();
 	return (
-		<div>
+		<div className='editor-preview-style'>
 			<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
 				{markdownText.value}
 			</Markdown>
