@@ -7,8 +7,10 @@ import { markdownText } from './MarkdownEditor';
 export const MarkDownPreview: React.FC = () => {
 	useSignals();
 	return (
-		<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-			{markdownText.value}
-		</Markdown>
+		<div>
+			<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+				{markdownText.value}
+			</Markdown>
+		</div>
 	);
 };
