@@ -32,6 +32,17 @@ export const Toolbar: React.FC = () => {
 		textArea.value = updatedMarkdownText;
 		console.log(updatedMarkdownText);
 	};
+	const saveAsMarkdown = () => {
+		const text = markdownText.value;
+		const blob = new Blob([text], { type: 'text/markdown' });
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = 'document.md';
+		a.click();
+		URL.revokeObjectURL(url);
+	};
+
 	return (
 		<div className='flex gap-6 bg-black py-4 px-4 w-full h-auto'>
 			<FontAwesomeIcon
@@ -41,6 +52,9 @@ export const Toolbar: React.FC = () => {
 				onClick={toggleBold}
 			/>
 			<FontAwesomeIcon icon={faItalic} color='white' className='cursor-pointer' />
+			<p className='text-amber-50' onClick={saveAsMarkdown}>
+				M
+			</p>
 		</div>
 	);
 };
