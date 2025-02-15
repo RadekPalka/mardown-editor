@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Toolbar: React.FC = () => {
 	return (
-		<div>
-			<FontAwesomeIcon icon={faBold} />
-			<FontAwesomeIcon icon={faItalic} />
+		<div className='flex gap-6 bg-black py-4 px-4'>
+			<FontAwesomeIcon icon={faBold} color='white' className='cursor-pointer' />
+			<FontAwesomeIcon icon={faItalic} color='white' className='cursor-pointer' />
 		</div>
 	);
 };
