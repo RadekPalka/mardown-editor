@@ -20,7 +20,6 @@ export const Toolbar: React.FC = () => {
 
 		if (boldRegex.test(selectedText)) {
 			newText = selectedText.slice(2, selectedText.length - 2);
-			console.log(newText);
 		} else {
 			newText = `**${selectedText}**`;
 		}
@@ -29,9 +28,8 @@ export const Toolbar: React.FC = () => {
 			newText +
 			markdownText.value.slice(endIndex);
 		markdownText.value = updatedMarkdownText;
-		textArea.value = updatedMarkdownText;
-		console.log(updatedMarkdownText);
 	};
+
 	const saveAsMarkdown = () => {
 		const text = markdownText.value;
 		const blob = new Blob([text], { type: 'text/markdown' });
