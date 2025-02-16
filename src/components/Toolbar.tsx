@@ -1,4 +1,8 @@
-import { faBold, faItalic } from '@fortawesome/free-solid-svg-icons';
+import {
+	faBold,
+	faFileUpload,
+	faItalic,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { textareaRef, markdownText } from './MarkdownEditor';
 import { useSignals } from '@preact/signals-react/runtime';
@@ -41,6 +45,23 @@ export const Toolbar: React.FC = () => {
 		URL.revokeObjectURL(url);
 	};
 
+	const loadMarkdownFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const file = event.target.files?.[0];
+		if (!file) return;
+
+		if (!file.name.endsWith('.md')) {
+			alert('Proszę wybrać plik z rozszerzeniem .md');
+			return;
+		}
+
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			const content = e.target?.result as string;
+			markdownText.value = content;
+		};
+		reader.readAsText(file);
+	};
+
 	return (
 		<div className='flex gap-6 bg-black py-4 px-4 w-full h-auto'>
 			<FontAwesomeIcon
@@ -53,6 +74,20 @@ export const Toolbar: React.FC = () => {
 			<p className='text-amber-50' onClick={saveAsMarkdown}>
 				M
 			</p>
+			<label htmlFor='fileInput' className='cursor-pointer'>
+				<FontAwesomeIcon
+					icon={faFileUpload}
+					color='white'
+					title='Wczytaj plik Markdown'
+				/>
+			</label>
+			<input
+				id='fileInput'
+				type='file'
+				accept='.md'
+				className='hidden'
+				onChange={loadMarkdownFile}
+			/>
 		</div>
 	);
 };
