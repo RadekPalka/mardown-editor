@@ -1,6 +1,7 @@
 import {
 	faBold,
 	faFileUpload,
+	faFloppyDisk,
 	faItalic,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -71,9 +72,12 @@ export const Toolbar: React.FC = () => {
 				onClick={toggleBold}
 			/>
 			<FontAwesomeIcon icon={faItalic} color='white' className='cursor-pointer' />
-			<p className='text-amber-50' onClick={saveAsMarkdown}>
-				M
-			</p>
+			<FontAwesomeIcon
+				icon={faFloppyDisk}
+				onClick={saveAsMarkdown}
+				color='white'
+				className='cursor-pointer'
+			/>
 			<label htmlFor='fileInput' className='cursor-pointer'>
 				<FontAwesomeIcon
 					icon={faFileUpload}
