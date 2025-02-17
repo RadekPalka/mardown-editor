@@ -18,7 +18,31 @@ export const MarkdownEditor: React.FC = () => {
 		<textarea
 			ref={ref}
 			className='editor-preview-style'
-			onChange={(e) => (markdownText.value = DOMPurify.sanitize(e.target.value))}
+			onChange={(e) => {
+				markdownText.value = DOMPurify.sanitize(e.target.value, {
+					ALLOWED_TAGS: [
+						'h1',
+						'h2',
+						'h3',
+						'h4',
+						'h5',
+						'h6',
+						'strong',
+						'em',
+						'ul',
+						'ol',
+						'li',
+						'p',
+						'br',
+						'code',
+						'pre',
+						'blockquote',
+						'a',
+						'img',
+					],
+					ALLOWED_ATTR: ['href', 'src', 'alt'],
+				});
+			}}
 			value={markdownText.value}
 		></textarea>
 	);

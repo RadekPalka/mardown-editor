@@ -3,6 +3,15 @@ export const example = `# Witaj w Markdown Editor! 👋
 Markdown to prosty język formatowania tekstu, który pozwala łatwo tworzyć czytelne dokumenty.  
 Spróbuj edytować ten tekst, aby zobaczyć, jak działa Markdown.
 
+## 🧩 Nagłówki
+
+# Nagłówek 1 (H1)  
+## Nagłówek 2 (H2)  
+### Nagłówek 3 (H3)  
+#### Nagłówek 4 (H4)  
+##### Nagłówek 5 (H5)  
+###### Nagłówek 6 (H6)
+
 ## 🛠️ Podstawowe formatowanie
 
 - **Pogrubienie**  
@@ -25,7 +34,7 @@ Spróbuj edytować ten tekst, aby zobaczyć, jak działa Markdown.
 ## 🔗 Linki i obrazy
 
 - [Przykładowy link](https://www.google.com)  
-- ![Przykładowy obrazek](https://via.placeholder.com/150)
+- ![Przykładowy obrazek](https://picsum.photos/300/200)
 
 ## 🗨️ Cytaty
 
