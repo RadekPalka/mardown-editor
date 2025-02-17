@@ -5,5 +5,5 @@ body {
 	padding: 0;
 }
 .editor-preview-style {
-	@apply w-1/2 h-[calc(100vh-4rem)] p-4 border border-gray-300;
+	@apply w-1/2  p-4 border border-gray-300;
 }
