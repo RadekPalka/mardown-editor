@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeRaw from 'rehype-raw';
 import rehypeKatex from 'rehype-katex';
+import DOMPurify from 'dompurify';
 import 'katex/dist/katex.min.css';
 import { markdownText } from './MarkdownEditor';
 
@@ -105,7 +106,7 @@ export const MarkDownPreview: React.FC = () => {
 					),
 				}}
 			>
-				{markdownText.value}
+				{DOMPurify.sanitize(markdownText.value)}
 			</Markdown>
 		</div>
 	);
